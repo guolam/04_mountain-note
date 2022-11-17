@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>山ノート</title>
+  <link rel="stylesheet" href="css/sample.css">
+</head>
+
+<!-- test -->
+
+<body>
+  <header>
+    <h1>山ノート</h1>
+  </header>
+
+  <main>
+    <!-- inputの部分 -->
+    <!-- 日付 -->
+    <div id="memo">
+      <p>日付</p>
+      <select type="text" id="title"></select>
+      <p>山</p>
+      <input type="text" id="mountain"><!-- 行った山 -->
+      <!-- 名前で検索で -->
+      <p>温泉</p>
+      <input type="text" id="spring">
+      <p>山メシ</p>
+      <input type="text" id="food">
+      <p>所感</p>
+      <textarea type="text_area" id="text_area"></textarea><!-- メモ -->
+      <p>画像</p>
+      <input type="pic" id="pic">
+    </div>
+    <!-- 写真をアップ -->
+
+    <!-- やりたいこと -->
+    <!-- 天気を表示
+入れた山を自動保存
+楽しく行った山を集計
+マップで表示
+山と温泉の使用率集計www
+
+<select name="" id="select"></select>
+ -->
+
+    <ul>
+      <li id="save">Save</li>
+      <li id="clear">Clear</li>
+      <li id="storage">Storage</li>
+      <!-- <li id="save2">タイトル設定</li>
+      <li id="clear2">タイトルリセット</li> -->
+    </ul>
+
+    <textarea type="text_area" id="showList"></textarea>
+
+
+    <p id="stock"></p>
+
+  </main>
+
+
+  <footer>
+    <small>G's</small>
+  </footer>
+
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script>
+
+    // メインデータを保存するときの処理
+    //始まった年と終了の年
+    // const start = 2018;
+    // const end = 2023;
+
+    // let year1 = "";
+
+    // for (let i = start; i <= end; i++) {
+    //   year1 += "<option>" + i + "</option>";
+    // };
+
+    //該当数字をtitleに入れる
+    // $("#title").html(year1)
+
+    //空のconstを作成
+    const allData = [];
+
+    //saveをクリックしたら、idから値を取れる
+    $("#save").on("click", function () {
+      // const year1 = $("#title").val();
+      const mountain = $("#mountain").val();
+      const spring = $("#spring").val();
+      const food = $("#food").val();
+      const text = $("#text_area").val();
+      const pic = $("#pic").val();
+
+      // //maindata変数が以下のものをまとめて、objectにする
+      const maindata = {
+        // title: title,
+        mountain: mountain,
+        spring: spring,
+        food: food,
+        text: text,
+        pic: pic,
+      };
+
+      //maindataというobjectをallDataの中に入れる
+      allData.push(maindata);
+
+      //JSON データを変換する処理
+      const jsonData = JSON.stringify(allData); //stringify 文字列
+      localStorage.setItem("maindata", jsonData);
+      console.log(jsonData);
+
+      console.log(allData);
+
+    });
+
+    const jsonData = localStorage.getItem("maindata");
+    const maindata = JSON.parse(jsonData); //parse=解析する
+    console.log(maindata);
+
+
+    $("#storage").on("click", function () {
+
+      let jsonData = localStorage.getItem("maindata")
+      let maindata = JSON.parse(jsonData);//parse=解析する
+
+      console.log(maindata);
+
+      const htmlElm = [];　//からのHTML配列
+      for (var i = 0; i < maindata.length; i++) {　//繰り返し処理
+
+        const mountain = maindata[i].mountain;
+
+        const createHtml = `<p>${mountain}</p>`;//Pタグとして入れる
+        htmlElm.push(createHtml); //createHTMLを空の配列に入れる
+
+        $("#stock").html(htmlElm);
+
+      }
+      console.log(htmlElm);
+    });
+
+
+    // //データを削除する処理
+    $("#clear").on("click", function () {
+      localStorage.clear("maindata");
+      // $("#title").val("");
+      $("#mountain").val("");
+      $("#spring").val("");
+      $("#food").val("");
+      $("#text_area").val("");
+      $("#pic").val("");
+      $("#showList").val("");
+    });
+
+
+  </script>
+
+</body>
+
+</html>
