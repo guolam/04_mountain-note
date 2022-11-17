@@ -25,3 +25,10 @@
 
   ー　*localStorageで複数のデータを保存する*
   https://www.tam-tam.co.jp/tipsnote/javascript/post5978.html
+
+  - LAB生のヒーくんにめちゃ教えていただきました。
+  - 大事な概念：
+  - 配列の中に、オブジェクトを入れられます。
+  - JSONデータを一個一個取り出して、文字列にしたら、表示される。
+
+
