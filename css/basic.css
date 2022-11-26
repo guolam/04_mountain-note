@@ -1,0 +1,207 @@
+.head_logo img {
+    width: 300px;
+}
+
+.cata {
+    display: flex;
+    justify-content: left;
+
+}
+
+#memo {
+    margin: auto;
+}
+
+.left_box {
+    text-align: right;
+    width: 20%;
+}
+
+.box {
+    width: 50%;
+    justify-content: left;
+    text-align: left;
+    background: rgb(#aeeac0);
+    border-radius: 10px;
+    margin-left: 5%;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+/* .box_right {
+    width: 400px;
+    justify-content: space-evenly;
+    text-align: center;
+    background: rgb(162, 211, 232);
+    border-radius: 10px;
+    margin: auto;
+} */
+
+select {
+    margin: 2%;
+}
+
+.input_btn {
+    font-size: 8px;
+}
+
+.inner_box {
+    border: 1px solid;
+    font-size: 20px;
+    width: 100px;
+    justify-content: space-evenly;
+}
+
+/* ボックス中の日にち */
+.date {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+
+/* creatHTMLの層のボックス */
+.createHtml {
+    width: 100%;
+    margin: auto;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 5%;
+    transition: scale .5s;
+    font-size: 30px;
+    font-family: 'Kiwi Maru', serif;
+    ;
+}
+
+.createHtml :hover {
+    transform: scale(1.05);
+    opacity: 0.6;
+}
+
+.flame {
+    width: 90%;
+}
+
+/* display of the pictures */
+.photo img {
+    width: 300px;
+    height: auto;
+}
+
+.box_stock {
+    width: 500px;
+    height: auto;
+    margin: auto;
+    text-align: center;
+}
+
+.show {
+    width: 500px;
+    height: auto;
+    margin: auto;
+    text-align: center;
+}
+
+body {
+    margin: auto;
+    padding: 0;
+    text-align: left;
+    font-size: 32px;
+    font-family: 'Sawarabi Gothic', sans-serif;
+    justify-content: center;
+    width: 880px;
+}
+
+
+header {
+    background-color: #fff;
+    border-bottom: 1px solid #ccc;
+    text-align: center;
+}
+
+main {
+    /* border-bottom: 1px solid #ccc; */
+    position: relative;
+}
+
+footer {
+    background-color: #fff;
+    border-bottom: 1px solid #ccc;
+    text-align: center;
+}
+
+p {
+    font-size: 50%;
+    text-align: center;
+    /* border-bottom: 1px solid #fff; */
+}
+
+ul {
+    padding: 20px;
+    margin: auto;
+    /* border-top: 1px solid #000000; */
+    display: table;
+    /* 定義 */
+    /* table-layout: fixed; */
+    width: 60%;
+    text-align: center;
+    justify-items: center;
+    justify-content: space-evenly;
+
+}
+
+
+li {
+    list-style-type: none;
+    border: 1px solid #8EC3B0;
+    background-color: #FFF;
+    border-radius: 5px;
+    display: table-cell;
+    /* 定義 */
+    cursor: pointer;
+}
+
+li:hover {
+    background: rgb(201, 191, 132);
+    color: #fff;
+}
+
+
+.inner_box,
+select,
+option {
+    border: 1px solid #8EC3B0;
+    border-radius: 5px;
+    cursor: no-drop;
+}
+
+
+input,
+textarea {
+    margin: 3%;
+    border: 1px solid #8EC3B0;
+    width: 95%;
+    font-size: 80%;
+    box-shadow: 1px #8EC3B0;
+}
+
+
+.inner_box:hover,
+select:hover,
+option:hover,
+input:hover,
+textarea:hover {
+    background: rgb(201, 191, 132);
+    color: #fff;
+}
+
+input {
+    height: 30px;
+}
+
+textarea {
+    height: 180px;
+}
+
+.self_title {
+    background-color: cadetblue;
+}

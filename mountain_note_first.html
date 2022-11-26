@@ -6,161 +6,126 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>山ノート</title>
-  <link rel="stylesheet" href="css/sample.css">
+  <link rel="stylesheet" href="css/basic.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Klee+One:wght@600&family=M+PLUS+Rounded+1c&family=Sawarabi+Gothic&display=swap"
+    rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Kiwi+Maru&family=Klee+One:wght@600&family=M+PLUS+Rounded+1c&family=Sawarabi+Gothic&display=swap"
+    rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/css/lightbox.css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/js/lightbox.min.js"
+    type="text/javascript"></script>
+
+  <link rel="icon" href="img/mountain-icon.png">
+  <title>YAMANOTE</title>
+
 </head>
 
 <!-- 再プッシュ！ -->
 
 <body>
   <header>
-    <h1>山ノート</h1>
+    <div class="head_logo">
+      <img src="img/yamanotelogo.png">
+      <p>愛すべき山の日々を記録するものである</p>
+    </div>
+
   </header>
 
   <main>
-    <!-- inputの部分 -->
-    <!-- 日付 -->
-    <div id="memo">
-      <p>日付</p>
-      <select type="text" id="title"></select>
-      <p>山</p>
-      <input type="text" id="mountain"><!-- 行った山 -->
-      <!-- 名前で検索で -->
-      <p>温泉</p>
-      <input type="text" id="spring">
-      <p>山メシ</p>
-      <input type="text" id="food">
-      <p>所感</p>
-      <textarea type="text_area" id="text_area"></textarea><!-- メモ -->
-      <p>画像</p>
-      <input type="pic" id="pic">
+
+
+    <div class="result">
     </div>
-    <!-- 写真をアップ -->
 
-    <!-- やりたいこと -->
-    <!-- 天気を表示
-入れた山を自動保存
-楽しく行った山を集計
-マップで表示
-山と温泉の使用率集計www
-
-<select name="" id="select"></select>
- -->
-
-    <ul>
-      <li id="save">Save</li>
-      <li id="clear">Clear</li>
-      <li id="storage">Storage</li>
-      <!-- <li id="save2">タイトル設定</li>
-      <li id="clear2">タイトルリセット</li> -->
+    <ul class="btn">
+      <li id="input">入力</li>
+      <li id="storage">ギャラリー</li>
+      <li id="array">並び替え</li>
     </ul>
 
-    <textarea type="text_area" id="showList"></textarea>
+    </div>
+
+    <div class="outside_box">
+      <div id="memo" class="middle">
+        <div class="cata">
+          <p class="left_box">日付</p>
+          <div class="box">
+
+            <select class=inner_box type="text" id="year">
+
+            </select>
+            <select class=inner_box type="text" id="month">
+
+            </select>
+            <select class=inner_box type="text" id="date">
+
+            </select>
+
+          </div>
+        </div>
+        <div class="cata">
+          <p class="left_box">山</p>
+          <input class="box" type="text" id="mountain">
+        </div>
+        <div class="cata">
+          <p class="left_box">温泉</p>
+          <input class="box" type="text" id="spring">
+        </div>
+        <div class="cata">
+          <p class="left_box">山メシ</p>
+          <input class="box" type="text" id="food">
+        </div>
+        <div class="cata">
+          <p class="left_box">写真</p>
+          <input class="box" type="text" id="photo">
+
+        </div>
+        <div class="cata">
+          <p class="left_box">所感</p>
+          <textarea class="box" type="text_area" id="text_area"></textarea>
+        </div>
 
 
-    <p id="stock"></p>
+        <div class="result">
+        </div>
+
+        <ul class="btn">
+          <li id="save">保存</li>
+          <!-- <li id="delete">最新削除</li> -->
+          <li id="clear">全削除</li>
+        </ul>
+
+      </div>
+
+      <div class="show" style=display:none>
+        <p id="showlist"></p>
+      </div>
+    </div>
+    <div class="box_stock" style=display:none>
+      <p id="stock"></p>
+    </div>
 
   </main>
 
 
   <footer>
-    <small>G's</small>
+    <small>YAMANOTE 2022</small>
   </footer>
 
+  <!-- //--------------------------------JavaScript---------------------------------// -->
 
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
-    // メインデータを保存するときの処理
-    //始まった年と終了の年
-    // const start = 2018;
-    // const end = 2023;
-
-    // let year1 = "";
-
-    // for (let i = start; i <= end; i++) {
-    //   year1 += "<option>" + i + "</option>";
-    // };
-
-    //該当数字をtitleに入れる
-    // $("#title").html(year1)
-
-    //空のconstを作成
-    const allData = [];
-
-    //saveをクリックしたら、idから値を取れる
-    $("#save").on("click", function () {
-      // const year1 = $("#title").val();
-      const mountain = $("#mountain").val();
-      const spring = $("#spring").val();
-      const food = $("#food").val();
-      const text = $("#text_area").val();
-      const pic = $("#pic").val();
-
-      // //maindata変数が以下のものをまとめて、objectにする
-      const maindata = {
-        // title: title,
-        mountain: mountain,
-        spring: spring,
-        food: food,
-        text: text,
-        pic: pic,
-      };
-
-      //maindataというobjectをallDataの中に入れる
-      allData.push(maindata);
-
-      //JSON データを変換する処理
-      const jsonData = JSON.stringify(allData); //stringify 文字列
-      localStorage.setItem("maindata", jsonData);
-      console.log(jsonData);
-
-      console.log(allData);
-
-    });
-
-    const jsonData = localStorage.getItem("maindata");
-    const maindata = JSON.parse(jsonData); //parse=解析する
-    console.log(maindata);
+  <script type="text/javascript" src="../mountain-note/js/basic.js"></script>
 
 
-    $("#storage").on("click", function () {
-
-      let jsonData = localStorage.getItem("maindata")
-      let maindata = JSON.parse(jsonData);//parse=解析する
-
-      console.log(maindata);
-
-      const htmlElm = [];　//からのHTML配列
-      for (var i = 0; i < maindata.length; i++) {　//繰り返し処理
-
-        const mountain = maindata[i].mountain;
-
-        const createHtml = `<p>${mountain}</p>`;//Pタグとして入れる
-        htmlElm.push(createHtml); //createHTMLを空の配列に入れる
-
-        $("#stock").html(htmlElm);
-
-      }
-      console.log(htmlElm);
-    });
-
-
-    // //データを削除する処理
-    $("#clear").on("click", function () {
-      localStorage.clear("maindata");
-      // $("#title").val("");
-      $("#mountain").val("");
-      $("#spring").val("");
-      $("#food").val("");
-      $("#text_area").val("");
-      $("#pic").val("");
-      $("#showList").val("");
-    });
-
-
-  </script>
 
 </body>
 
