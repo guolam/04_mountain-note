@@ -2,7 +2,7 @@
 
 ## DEMO
 
-  -   https://guolam.github.io/mountain-note/mountain_note_first.html
+  -   https://guolam.sakura.ne.jp/mountain-note/mountain_note_first
 
 ## 紹介と使い方
 
